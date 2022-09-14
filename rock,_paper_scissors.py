@@ -28,23 +28,29 @@ scissors = '''
 '''
 
 #Write your code below this line 👇
-comp = random.randint(1, 3)
-print(comp)
-user = input("Please enter 1 for rock, 2 for paper or 3 for scissor\n")
-user = int(user)
-if comp == 1 and user == 3:
-    print("Rock wins over scissor.")
-elif comp == 3 and user == 1:
-    print("Rock wins over scissor.")
-elif comp == 2 and user == 1:
-    print("Paper wins over rock.")
-elif comp == 1 and user == 2:
-    print("Paper wins over rock.")
-elif comp == 3 and user == 2:
-    print("Scissor wins over paper.")
-elif comp == 2 and user == 3:
-    print("Scissor wins over paper.")
-elif comp == user:
-    print("Draw.")
+game = [rock,paper,scissors]
+
+user= int(input("Please enter 0 for rock, 1 for paper or 2 for scissors.\n"))
+if user >= 3 or user < 0:
+    print("Invalid input, you lose!")
 else:
-    print("Invalid input, run the game again!")
+    print(game[user])
+    comp= random.randint(0,2)
+    print("Computer chose:\n")
+    print(game[comp])
+
+#if  user >= 3 or user < 0:
+#   print("Invalid input, you lose!")
+    if user == 0 and comp == 2:
+        print("You win!")
+    elif user == 2 and comp == 0:
+        print("You lose!")
+    elif comp > user:
+        print("You lose!")
+    elif user > comp:
+        print("You win!")
+    elif comp == user:
+        print("It's a draw.")
+
+
+
